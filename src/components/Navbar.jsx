@@ -49,6 +49,12 @@ const Navbar = () => {
                 </>
               )}
               
+              {user?.roles?.includes('Farmer') && (
+                <Link to="/farmer/dashboard">
+                  <Button variant="ghost">Demand Forecast</Button>
+                </Link>
+              )}
+              
               <Button onClick={handleLogout} variant="outline">Logout</Button>
             </>
           ) : (
