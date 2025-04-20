@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
@@ -6,6 +5,7 @@ import Navbar from '../../components/Navbar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
+import { Contact } from 'lucide-react';
 
 const RetailerRequests = () => {
   const [requests, setRequests] = useState([]);
@@ -137,9 +137,10 @@ const RetailerRequests = () => {
                           <p className="text-gray-600 mt-1">
                             Requested quantity: <strong>{request.quantity}</strong>
                           </p>
-                          <p className="text-gray-600">
-                            NGO ID: <strong>{request.ngo_id}</strong>
-                          </p>
+                          <div className="flex items-center gap-2 text-gray-600">
+                            <Contact className="h-4 w-4" />
+                            <p>NGO Contact: <strong>{request.ngo_contact || 'N/A'}</strong></p>
+                          </div>
                           {request.pickup_date && (
                             <p className="text-gray-600">
                               Requested pickup: <strong>{formatDate(request.pickup_date)}</strong>
